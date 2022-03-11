@@ -1,0 +1,39 @@
+.keyboard-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  position: absolute;
+  bottom: 6%;
+}
+
+.keyboard-container > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.keyboard-container > div > button {
+  margin: 0.1rem;
+  width: 3rem;
+  border: 1px solid black;
+  font-size: 2rem;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, pink), color-stop(50%, cyan));
+  background: linear-gradient(90deg, pink 50%, cyan 50%);
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 0.5rem 0 0.5rem 0;
+}
+
+.keyboard-container > div .ENTR {
+  font-size: 1.2rem;
+  width: 4rem;
+}
+
+.keyboard-container > div .DEL {
+  font-size: 1.2rem;
+  width: 4rem;
+}
+/*# sourceMappingURL=KeyboardScreen.css.map */

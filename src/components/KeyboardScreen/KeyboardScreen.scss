@@ -1,0 +1,33 @@
+.keyboard-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    position: absolute;
+    bottom: 6%;
+
+    > div {
+        display: flex;
+        justify-content: center;
+
+        > button {
+            margin: 0.1rem;
+            width: 3rem;
+            border: 1px solid black;
+            font-size: 2rem;
+            background: linear-gradient(90deg, pink 50%, cyan 50%);
+            border-radius: 12px;
+            cursor: pointer;
+            padding: 0.5rem 0 0.5rem 0;
+        }
+
+        .ENTR {
+            font-size: 1.2rem;
+            width: 4rem;
+        }
+
+        .DEL {
+            font-size: 1.2rem;
+            width: 4rem;
+        }
+    }
+}
