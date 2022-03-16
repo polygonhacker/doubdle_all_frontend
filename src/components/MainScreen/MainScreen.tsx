@@ -2,8 +2,14 @@ import React from "react";
 import './MainScreen.scss'
 
 const MainScreen = () => {
+
+    const typed = (e: React.KeyboardEvent) => {
+        console.log('hello');   
+        console.log(e.key);
+    }
+
     return (
-        <section className='top-length'>
+        <section className='top-length' tabIndex={0} onKeyUp={e => {typed(e)}}>
             <div className='main'>
                 <div className='container 1'>
                     <div>

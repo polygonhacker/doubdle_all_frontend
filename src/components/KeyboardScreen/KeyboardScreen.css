@@ -17,23 +17,23 @@
 
 .keyboard-container > div > button {
   margin: 0.1rem;
-  width: 3rem;
-  border: 1px solid black;
-  font-size: 2rem;
-  background: -webkit-gradient(linear, left top, right top, color-stop(50%, pink), color-stop(50%, cyan));
-  background: linear-gradient(90deg, pink 50%, cyan 50%);
+  width: 2.5rem;
+  border: 1.5px solid grey;
+  font-size: 1.5rem;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #dada00), color-stop(50%, #09ae00));
+  background: linear-gradient(90deg, #dada00 50%, #09ae00 50%);
   border-radius: 12px;
   cursor: pointer;
   padding: 0.5rem 0 0.5rem 0;
 }
 
-.keyboard-container > div .ENTR {
-  font-size: 1.2rem;
-  width: 4rem;
+.keyboard-container > div .ENTER {
+  font-size: 1.1rem;
+  width: 5rem;
 }
 
-.keyboard-container > div .DEL {
-  font-size: 1.2rem;
-  width: 4rem;
+.keyboard-container > div .DELETE {
+  font-size: 1.1rem;
+  width: 6rem;
 }
 /*# sourceMappingURL=KeyboardScreen.css.map */

@@ -3,7 +3,7 @@ import './KeyboardScreen.css'
 
 let topRow = 'QWERTYUIOP'.split('');
 let middleRow = 'ASDFGHJKL'.split('');
-let bottomRow = ['ENTR'].concat('ZXCVBNM'.split(''), ['DEL']);
+let bottomRow = ['ENTER'].concat('ZXCVBNM'.split(''), ['DELETE']);
 
 const KeyboardScreen = () => {
 
