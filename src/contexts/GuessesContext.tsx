@@ -1,6 +1,13 @@
 import React, { useState, createContext } from 'react';
 
-export const GuessesContext = createContext<String[][]>([[]]);
+export const GuessesContext = createContext<String[][]>([
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', '']
+]);
 
 export const GuessesProvider = ({ children }: any) => {
 
