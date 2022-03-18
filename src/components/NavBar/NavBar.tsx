@@ -1,5 +1,7 @@
 import React from "react";
 import './NavBar.scss';
+import { ReactComponent as Menu } from "../../assets/menu.svg";
+import { ReactComponent as Settings } from '../../assets/settings.svg'
 
 const NavBar = () => {
 
@@ -8,12 +10,12 @@ const NavBar = () => {
             <div className='container'>
                 <div className='left-menu'>
                     <div>
-                        something
+                        <Menu />
                     </div>
                 </div>
                 <h1>DOUBDLE</h1>
                 <div className='right-menu'>
-                    XYZ
+                    <Settings />
                 </div>
             </div>
         </header>
