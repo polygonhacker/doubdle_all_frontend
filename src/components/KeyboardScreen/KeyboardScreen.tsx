@@ -13,19 +13,26 @@ const KeyboardScreen = ({inputHandler}: any) => {
             <div className="top-row">
                 {topRow.map(char => <button key={char} 
                                             className={char}
-                                            onClick={(e) => {
+                                            onClick={() => {
                                                 inputHandler(char);
-                                                e.currentTarget.blur();
                                             }}
                                             type='button'>
                                                 {char}
                                     </button>)}
             </div>
             <div className="middle-row">
-                {middleRow.map(char => <button key={char} className={char}>{char}</button>)}
+                {middleRow.map(char => <button key={char} 
+                                                className={char}
+                                                onClick={() => {
+                                                    inputHandler(char);
+                                                }}>{char}</button>)}
             </div>
             <div className="bottom-row">
-                {bottomRow.map(char => <button key={char} className={char}>{char}</button>)}
+                {bottomRow.map(char => <button key={char} 
+                                                className={char}
+                                                onClick={() => {
+                                                    inputHandler(char);
+                                                }}>{char}</button>)}
             </div>
         </div>
     )
