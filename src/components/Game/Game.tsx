@@ -13,7 +13,7 @@ const Game = () => {
 
     useEffect(() => {
         gameDiv.current.focus();
-    }, []);
+    }, [gameState]);
     
     const handleInput = (input: string) => {
         if (gameState.row < 6) {
@@ -24,7 +24,6 @@ const Game = () => {
                     handleEnter();
                 }
             } else if (gameState.length < 5) {
-                console.log('typed a character');
                 gameState.guesses[gameState.row][gameState.length] = input;
                 gameState.length++;
                 setGameState({...gameState});
@@ -53,13 +52,12 @@ const Game = () => {
 
     const handleTypedInput = (event: React.KeyboardEvent<HTMLDivElement>) => {
         if ((/^[a-zA-Z]$|^Enter$|^Backspace$/).test(event.key)) {
-            console.log('typed');
             handleInput(event.key.toUpperCase());
         }
     }
 
     return (
-        <div tabIndex={0} onKeyDown={event => handleTypedInput(event)} className='game' ref={gameDiv}>
+        <div  tabIndex={0} onKeyDown={event => handleTypedInput(event)} className='game' ref={gameDiv}>
             <NavBar />
             <MainScreen />
             <KeyboardScreen inputHandler={handleInput} />

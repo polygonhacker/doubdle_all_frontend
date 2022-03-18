@@ -6,10 +6,6 @@ const MainScreen = () => {
 
     const gameState = useContext(GameStateContext).state;
 
-    useEffect(() => {
-        return;
-    }, [gameState])
-
     return (
         <section className='top-length'>
             <div className='main'>
