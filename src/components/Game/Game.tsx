@@ -16,10 +16,19 @@ const Game = () => {
     }, []);
     
     const handleInput = (input: string) => {
-        if (gameState.length < 5) {
-            gameState.guesses[gameState.row][gameState.length] = input;
-            gameState.length++;
-            setGameState({...gameState});
+        if (gameState.row < 6) {
+            if (input === 'BACKSPACE' || input === 'DELETE') {
+                handleBackspace();
+            } else if (input === 'ENTER') {
+                if (gameState.length == 5) {
+                    handleEnter();
+                }
+            } else if (gameState.length < 5) {
+                console.log('typed a character');
+                gameState.guesses[gameState.row][gameState.length] = input;
+                gameState.length++;
+                setGameState({...gameState});
+            }
         }
     }
 
@@ -32,6 +41,7 @@ const Game = () => {
     }
 
     const handleEnter = () => {
+        // console.log(gameState.guesses);
         // TODO: 
         // fetch data from server!!
         // reveal correct guesses via color change
@@ -42,14 +52,9 @@ const Game = () => {
     }
 
     const handleTypedInput = (event: React.KeyboardEvent<HTMLDivElement>) => {
-        if (gameState.row < 6) {
-            if ((/^[a-zA-Z]$/).test(event.key)) {
-                handleInput(event.key.toUpperCase());
-            } else if (event.key == 'Backspace') {
-                handleBackspace();
-            } else if (event.key == 'Enter' && gameState.length == 5) {
-                handleEnter();
-            }
+        if ((/^[a-zA-Z]$|^Enter$|^Backspace$/).test(event.key)) {
+            console.log('typed');
+            handleInput(event.key.toUpperCase());
         }
     }
 
