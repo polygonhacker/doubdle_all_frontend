@@ -1,17 +1,17 @@
 import React, { useState, createContext } from 'react';
 
-export const GameStateContext = createContext({
-    guesses: [
-        ['', '', '', '', ''],
-        ['', '', '', '', ''],
-        ['', '', '', '', ''],
-        ['', '', '', '', ''],
-        ['', '', '', '', ''],
-        ['', '', '', '', '']
-    ],
-    row: 0,
-    length: 0
-});
+type GameState = {
+    guesses: string[][],
+    row: number,
+    length: number
+}
+
+type GameContext = {
+    state: GameState,
+    setter: React.Dispatch<React.SetStateAction<GameState>>
+}
+
+export const GameStateContext = createContext<GameContext>({} as GameContext);
 
 export const GameStateProvider = ({ children }: any) => {
 
@@ -29,7 +29,7 @@ export const GameStateProvider = ({ children }: any) => {
     });
 
     return (
-        <GameStateContext.Provider value={gameState}>
+        <GameStateContext.Provider value={{state: gameState, setter: setGameState}}>
             { children }
         </GameStateContext.Provider>
     )

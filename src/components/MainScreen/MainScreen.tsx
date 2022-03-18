@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import './MainScreen.scss'
 import { GameStateContext } from "../../contexts/GameStateContext";
 
 const MainScreen = () => {
 
-    const gameState = useContext(GameStateContext);
+    const gameState = useContext(GameStateContext).state;
+
+    useEffect(() => {
+        return;
+    }, [gameState])
 
     return (
         <section className='top-length'>
