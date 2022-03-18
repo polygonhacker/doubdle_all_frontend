@@ -1,19 +1,15 @@
 import React from 'react';
 import './App.css';
-import NavBar from './components/NavBar/NavBar';
-import MainScreen from './components/MainScreen/MainScreen';
-import KeyboardScreen from './components/KeyboardScreen/KeyboardScreen';
-import { GuessesProvider } from './contexts/GuessesContext';
+import Game from './components/Game/Game';
+import { GameStateProvider } from './contexts/GameStateContext';
 
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <GuessesProvider>
-        <MainScreen />
-        <KeyboardScreen />
-      </GuessesProvider>
+      <GameStateProvider>
+        <Game />
+      </GameStateProvider>
     </div>
   );
 }

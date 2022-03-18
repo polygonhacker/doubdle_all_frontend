@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
 import './MainScreen.scss'
-import { GuessesContext } from "../../contexts/GuessesContext";
+import { GameStateContext } from "../../contexts/GameStateContext";
 
 const MainScreen = () => {
 
-    const guesses = useContext(GuessesContext);
+    const gameState = useContext(GameStateContext);
 
     return (
         <section className='top-length'>
             <div className='main'>
                 <div className='container 1'>
-                    {guesses.map((arr, index) => {
+                    {gameState.guesses.map((arr, index) => {
                         return (
                             <div key={index} className={`row-${index}`}>
                                 {arr.map((char, inner_index) => {
@@ -24,7 +24,7 @@ const MainScreen = () => {
                 </div>
 
                 <div className='container 2'>
-                    {guesses.map((arr, index) => {
+                    {gameState.guesses.map((arr, index) => {
                         return (
                             <div key={index} className={`row-${index}`}>
                                 {arr.map((char, inner_index) => {

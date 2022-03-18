@@ -5,7 +5,7 @@ let topRow = 'QWERTYUIOP'.split('');
 let middleRow = 'ASDFGHJKL'.split('');
 let bottomRow = ['ENTER'].concat('ZXCVBNM'.split(''), ['DELETE']);
 
-const KeyboardScreen = () => {
+const KeyboardScreen = ({inputHandler}: any) => {
 
 
     return (
