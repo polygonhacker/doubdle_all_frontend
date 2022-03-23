@@ -44,6 +44,34 @@ const Game = () => {
         // TODO: 
         // fetch data from server!!
         // reveal correct guesses via color change
+        let leftGameAnswer = gameState.leftAnswer.toUpperCase();
+        let rightGameAnswer = gameState.rightAnswer.toUpperCase();
+        let currentGuess = gameState.guesses[gameState.row];
+        
+        for (let i=0; i<5; i++) {
+            if (currentGuess[i] === leftGameAnswer[i]) {
+                gameState.leftTileColor[gameState.row][i] = '#427a3c';
+            } else if (leftGameAnswer.includes(currentGuess[i])) {
+                gameState.leftTileColor[gameState.row][i] = '#b59e3c';
+            } else {
+                gameState.leftTileColor[gameState.row][i] = 'grey'
+            }
+
+            if (currentGuess[i] === rightGameAnswer[i]) {
+                gameState.rightTileColor[gameState.row][i] = '#427a3c';
+            } else if (rightGameAnswer.includes(currentGuess[i])) {
+                gameState.rightTileColor[gameState.row][i] = '#b59e3c';
+            } else {
+                gameState.rightTileColor[gameState.row][i] = 'grey'
+            }
+        }
+        if (gameState.leftTileColor[gameState.row].every((element) => {return element === '#427a3c'})) {
+            gameState.leftSolved = true;
+        }
+        if (gameState.rightTileColor[gameState.row].every((element) => {return element === '#427a3c'})) {
+            gameState.rightSolved = true;
+        }
+        
         gameState.row++;
         gameState.length = 0;
         setGameState({...gameState});

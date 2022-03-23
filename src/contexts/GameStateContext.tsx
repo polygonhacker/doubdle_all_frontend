@@ -1,9 +1,16 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
+import testList from '../assets/testList';
 
 type GameState = {
     guesses: string[][],
+    leftTileColor: string[][],
+    rightTileColor: string[][],
     row: number,
-    length: number
+    length: number,
+    leftAnswer: string,
+    rightAnswer: string,
+    rightSolved: boolean,
+    leftSolved: boolean
 }
 
 type GameContext = {
@@ -15,6 +22,10 @@ export const GameStateContext = createContext<GameContext>({} as GameContext);
 
 export const GameStateProvider = ({ children }: any) => {
 
+    // useEffect(() => {
+    //     testList.forEach(value => {console.log(value);})
+    // }, [])
+
     const [gameState, setGameState] = useState({
         guesses: [
             ['', '', '', '', ''],
@@ -24,8 +35,28 @@ export const GameStateProvider = ({ children }: any) => {
             ['', '', '', '', ''],
             ['', '', '', '', '']
         ],
+        leftTileColor: [
+            ['', '', '', '', ''],
+            ['', '', '', '', ''],
+            ['', '', '', '', ''],
+            ['', '', '', '', ''],
+            ['', '', '', '', ''],
+            ['', '', '', '', '']
+        ],
+        rightTileColor: [
+            ['', '', '', '', ''],
+            ['', '', '', '', ''],
+            ['', '', '', '', ''],
+            ['', '', '', '', ''],
+            ['', '', '', '', ''],
+            ['', '', '', '', '']
+        ],
         row: 0,
-        length: 0
+        length: 0,
+        rightAnswer: testList[0],
+        leftAnswer: testList[1],
+        rightSolved: false,
+        leftSolved: false,
     });
 
     return (

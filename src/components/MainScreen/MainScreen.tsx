@@ -15,7 +15,11 @@ const MainScreen = () => {
                             <div key={index} className={`row-${index}`}>
                                 {arr.map((char, inner_index) => {
                                     return (
-                                    <div key={inner_index} className={`tile-${index}-${inner_index}`}>{char}</div>
+                                    <div key={inner_index} 
+                                        className={`tile-${index}-${inner_index}`}
+                                        style={{backgroundColor: gameState.leftTileColor[index][inner_index]}}>
+                                            {char}
+                                    </div>
                                     )
                                 })}
                             </div>
@@ -29,7 +33,11 @@ const MainScreen = () => {
                             <div key={index} className={`row-${index}`}>
                                 {arr.map((char, inner_index) => {
                                     return (
-                                    <div key={inner_index} className={`tile-${index}-${inner_index}`}>{char}</div>
+                                        <div key={inner_index} 
+                                            className={`tile-${index}-${inner_index}`}
+                                            style={{backgroundColor: gameState.rightTileColor[index][inner_index]}}>
+                                                {char}
+                                        </div>
                                     )
                                 })}
                             </div>
