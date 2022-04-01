@@ -2,7 +2,8 @@ import React, { useState, createContext, useEffect } from 'react';
 import testList from '../assets/testList';
 
 type GameState = {
-    guesses: string[][],
+    leftGuesses: string[][],
+    rightGuesses: string[][],
     leftTileColor: string[][],
     rightTileColor: string[][],
     row: number,
@@ -27,7 +28,15 @@ export const GameStateProvider = ({ children }: any) => {
     // }, [])
 
     const [gameState, setGameState] = useState({
-        guesses: [
+        leftGuesses: [
+            ['', '', '', '', ''],
+            ['', '', '', '', ''],
+            ['', '', '', '', ''],
+            ['', '', '', '', ''],
+            ['', '', '', '', ''],
+            ['', '', '', '', '']
+        ],
+        rightGuesses: [
             ['', '', '', '', ''],
             ['', '', '', '', ''],
             ['', '', '', '', ''],

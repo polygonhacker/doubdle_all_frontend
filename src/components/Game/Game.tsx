@@ -24,7 +24,12 @@ const Game = () => {
                     handleEnter();
                 }
             } else if (gameState.length < 5) {
-                gameState.guesses[gameState.row][gameState.length] = input;
+                if (!gameState.leftSolved) {
+                    gameState.leftGuesses[gameState.row][gameState.length] = input;
+                }
+                if (!gameState.rightSolved) {
+                    gameState.rightGuesses[gameState.row][gameState.length] = input;
+                }
                 gameState.length++;
                 setGameState({...gameState});
             }
@@ -33,7 +38,12 @@ const Game = () => {
 
     const handleBackspace = () => {
         if (gameState.length > 0) {
-            gameState.guesses[gameState.row][gameState.length - 1] = '';
+            if (!gameState.leftSolved) {
+                gameState.leftGuesses[gameState.row][gameState.length - 1] = '';
+            }
+            if (!gameState.rightSolved) {
+                gameState.rightGuesses[gameState.row][gameState.length - 1] = '';
+            }
             gameState.length--;
             setGameState({...gameState});
         }
@@ -46,23 +56,28 @@ const Game = () => {
         // reveal correct guesses via color change
         let leftGameAnswer = gameState.leftAnswer.toUpperCase();
         let rightGameAnswer = gameState.rightAnswer.toUpperCase();
-        let currentGuess = gameState.guesses[gameState.row];
+        let currentLeftGuess = gameState.leftGuesses[gameState.row];
+        let currentRightGuess = gameState.rightGuesses[gameState.row];
         
         for (let i=0; i<5; i++) {
-            if (currentGuess[i] === leftGameAnswer[i]) {
-                gameState.leftTileColor[gameState.row][i] = '#427a3c';
-            } else if (leftGameAnswer.includes(currentGuess[i])) {
-                gameState.leftTileColor[gameState.row][i] = '#b59e3c';
-            } else {
-                gameState.leftTileColor[gameState.row][i] = 'grey'
+            if (!gameState.leftSolved) {
+                if (currentLeftGuess[i] === leftGameAnswer[i]) {
+                    gameState.leftTileColor[gameState.row][i] = '#427a3c';
+                } else if (leftGameAnswer.includes(currentLeftGuess[i])) {
+                    gameState.leftTileColor[gameState.row][i] = '#b59e3c';
+                } else {
+                    gameState.leftTileColor[gameState.row][i] = 'grey'
+                }
             }
 
-            if (currentGuess[i] === rightGameAnswer[i]) {
-                gameState.rightTileColor[gameState.row][i] = '#427a3c';
-            } else if (rightGameAnswer.includes(currentGuess[i])) {
-                gameState.rightTileColor[gameState.row][i] = '#b59e3c';
-            } else {
-                gameState.rightTileColor[gameState.row][i] = 'grey'
+            if (!gameState.rightSolved) {
+                if (currentRightGuess[i] === rightGameAnswer[i]) {
+                    gameState.rightTileColor[gameState.row][i] = '#427a3c';
+                } else if (rightGameAnswer.includes(currentRightGuess[i])) {
+                    gameState.rightTileColor[gameState.row][i] = '#b59e3c';
+                } else {
+                    gameState.rightTileColor[gameState.row][i] = 'grey'
+                }
             }
         }
         if (gameState.leftTileColor[gameState.row].every((element) => {return element === '#427a3c'})) {

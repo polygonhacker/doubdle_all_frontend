@@ -10,7 +10,7 @@ const MainScreen = () => {
         <section className='top-length'>
             <div className='main'>
                 <div className='container 1'>
-                    {gameState.guesses.map((arr, index) => {
+                    {gameState.leftGuesses.map((arr, index) => {
                         return (
                             <div key={index} className={`row-${index}`}>
                                 {arr.map((char, inner_index) => {
@@ -28,7 +28,7 @@ const MainScreen = () => {
                 </div>
 
                 <div className='container 2'>
-                    {gameState.guesses.map((arr, index) => {
+                    {gameState.rightGuesses.map((arr, index) => {
                         return (
                             <div key={index} className={`row-${index}`}>
                                 {arr.map((char, inner_index) => {
