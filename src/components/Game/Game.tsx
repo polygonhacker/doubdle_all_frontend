@@ -14,6 +14,11 @@ const Game = () => {
 
     useEffect(() => {
         gameDiv.current.focus();
+        if (gameState.leftSolved && gameState.rightSolved) {
+            alert('congratulations!');
+        } else if (gameState.row === 6) {
+            alert('better luck next time');
+        }
     }, [gameState]);
     
     const handleInput = (input: string) => {
