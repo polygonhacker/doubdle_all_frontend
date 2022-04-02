@@ -22,10 +22,11 @@ type GameContext = {
 export const GameStateContext = createContext<GameContext>({} as GameContext);
 
 export const GameStateProvider = ({ children }: any) => {
-
-    // useEffect(() => {
-    //     testList.forEach(value => {console.log(value);})
-    // }, [])
+    let index1 = Math.floor(Math.random()*testList.length);
+    let index2 = Math.floor(Math.random()*testList.length);
+    while (index2 === index1) {
+        index2 = Math.floor(Math.random()*testList.length);
+    }
 
     const [gameState, setGameState] = useState({
         leftGuesses: [
@@ -62,8 +63,8 @@ export const GameStateProvider = ({ children }: any) => {
         ],
         row: 0,
         length: 0,
-        rightAnswer: testList[0],
-        leftAnswer: testList[1],
+        rightAnswer: testList[index1],
+        leftAnswer: testList[index2],
         rightSolved: false,
         leftSolved: false,
     });

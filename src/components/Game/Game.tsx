@@ -3,6 +3,7 @@ import NavBar from '../NavBar/NavBar';
 import MainScreen from '../MainScreen/MainScreen';
 import KeyboardScreen from '../KeyboardScreen/KeyboardScreen';
 import { GameStateContext } from "../../contexts/GameStateContext";
+import wordSet from "../../assets/wordSet";
 import './Game.css'
 
 const Game = () => {
@@ -58,6 +59,17 @@ const Game = () => {
         let rightGameAnswer = gameState.rightAnswer.toUpperCase();
         let currentLeftGuess = gameState.leftGuesses[gameState.row];
         let currentRightGuess = gameState.rightGuesses[gameState.row];
+
+        let word = currentLeftGuess.join('').toLowerCase();
+        if (word === '') {
+            word = currentRightGuess.join('').toLowerCase();
+        }
+        console.log(word);
+        console.log(wordSet);
+        if (!wordSet.has(word)) {
+            alert('word not valid')
+            return;
+        }
         
         for (let i=0; i<5; i++) {
             if (!gameState.leftSolved) {
@@ -66,7 +78,7 @@ const Game = () => {
                 } else if (leftGameAnswer.includes(currentLeftGuess[i])) {
                     gameState.leftTileColor[gameState.row][i] = '#b59e3c';
                 } else {
-                    gameState.leftTileColor[gameState.row][i] = 'grey'
+                    gameState.leftTileColor[gameState.row][i] = 'grey';
                 }
             }
 
@@ -76,7 +88,7 @@ const Game = () => {
                 } else if (rightGameAnswer.includes(currentRightGuess[i])) {
                     gameState.rightTileColor[gameState.row][i] = '#b59e3c';
                 } else {
-                    gameState.rightTileColor[gameState.row][i] = 'grey'
+                    gameState.rightTileColor[gameState.row][i] = 'grey';
                 }
             }
         }
