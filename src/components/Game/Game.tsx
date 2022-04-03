@@ -4,6 +4,7 @@ import MainScreen from '../MainScreen/MainScreen';
 import KeyboardScreen from '../KeyboardScreen/KeyboardScreen';
 import { GameStateContext } from "../../contexts/GameStateContext";
 import wordSet from "../../assets/wordSet";
+import { green, yellow, grey } from '../../assets/colors'
 import './Game.css'
 
 const Game = () => {
@@ -79,21 +80,27 @@ const Game = () => {
         for (let i=0; i<5; i++) {
             if (!gameState.leftSolved) {
                 if (currentLeftGuess[i] === leftGameAnswer[i]) {
-                    gameState.leftTileColor[gameState.row][i] = '#427a3c';
+                    gameState.leftTileColor[gameState.row][i] = green;
+                    gameState.leftGreen.add(currentLeftGuess[i]);
                 } else if (leftGameAnswer.includes(currentLeftGuess[i])) {
-                    gameState.leftTileColor[gameState.row][i] = '#b59e3c';
+                    gameState.leftTileColor[gameState.row][i] = yellow;
+                    gameState.leftYellow.add(currentLeftGuess[i]);
                 } else {
-                    gameState.leftTileColor[gameState.row][i] = 'grey';
+                    gameState.leftTileColor[gameState.row][i] = grey;
+                    gameState.leftGrey.add(currentLeftGuess[i]);
                 }
             }
 
             if (!gameState.rightSolved) {
                 if (currentRightGuess[i] === rightGameAnswer[i]) {
-                    gameState.rightTileColor[gameState.row][i] = '#427a3c';
+                    gameState.rightTileColor[gameState.row][i] = green;
+                    gameState.rightGreen.add(currentLeftGuess[i]);
                 } else if (rightGameAnswer.includes(currentRightGuess[i])) {
-                    gameState.rightTileColor[gameState.row][i] = '#b59e3c';
+                    gameState.rightTileColor[gameState.row][i] = yellow;
+                    gameState.rightYellow.add(currentLeftGuess[i]);
                 } else {
-                    gameState.rightTileColor[gameState.row][i] = 'grey';
+                    gameState.rightTileColor[gameState.row][i] = grey;
+                    gameState.rightGrey.add(currentLeftGuess[i]);
                 }
             }
         }

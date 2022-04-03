@@ -7,25 +7,23 @@
 }
 
 .nav-bar .container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
 .nav-bar .container .left-menu {
-  margin: 0 0 0 2rem;
+  margin: 0 auto 0 0;
+  padding: 0 0 0 3vw;
 }
 
 .nav-bar .container .right-menu {
-  margin: 0 2rem 0 0;
+  margin: 0 0 0 auto;
+  padding: 0 3vw 0 0;
 }
 
 .nav-bar .container h1 {

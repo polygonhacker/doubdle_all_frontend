@@ -11,7 +11,13 @@ type GameState = {
     leftAnswer: string,
     rightAnswer: string,
     rightSolved: boolean,
-    leftSolved: boolean
+    leftSolved: boolean,
+    leftGreen: Set<string>,
+    rightGreen: Set<string>,
+    leftYellow: Set<string>,
+    rightYellow: Set<string>,
+    leftGrey: Set<string>,
+    rightGrey: Set<string>,
 }
 
 type GameContext = {
@@ -67,6 +73,12 @@ export const GameStateProvider = ({ children }: any) => {
         leftAnswer: testList[index2],
         rightSolved: false,
         leftSolved: false,
+        leftGreen: new Set<string>(),
+        rightGreen: new Set<string>(),
+        leftYellow: new Set<string>(),
+        rightYellow: new Set<string>(),
+        leftGrey: new Set<string>(),
+        rightGrey: new Set<string>(),
     });
 
     return (
