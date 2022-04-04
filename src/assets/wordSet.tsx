@@ -1,8 +1,8 @@
-import testList from "./testList";
+import wordList from "./wordList";
 
 const wordSet = new Set()
 
-testList.forEach((word) => {
+wordList.forEach((word) => {
     wordSet.add(word)
 })
 
