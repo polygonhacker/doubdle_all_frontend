@@ -70,8 +70,6 @@ const Game = () => {
         if (word === '') {
             word = currentRightGuess.join('').toLowerCase();
         }
-        console.log(word);
-        console.log(wordSet);
         if (!wordSet.has(word)) {
             alert('word not valid')
             return;
