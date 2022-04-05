@@ -5,6 +5,8 @@ import KeyboardScreen from '../KeyboardScreen/KeyboardScreen';
 import { GameStateContext } from "../../contexts/GameStateContext";
 import wordSet from "../../assets/wordSet";
 import { green, yellow, grey } from '../../assets/colors'
+import { HelpModalContext } from "../../contexts/helpModalContext";
+import HelpModal from "../HelpModal/HelpModal";
 import './Game.css'
 
 const Game = () => {
@@ -12,6 +14,8 @@ const Game = () => {
     const gameDiv = useRef(document.createElement("div"));
     const gameState = useContext(GameStateContext).state;
     const setGameState = useContext(GameStateContext).setter;
+
+    const helpModal = useContext(HelpModalContext).helpModal;
 
     useEffect(() => {
         gameDiv.current.focus();
@@ -57,10 +61,6 @@ const Game = () => {
     }
 
     const handleEnter = () => {
-        // console.log(gameState.guesses);
-        // TODO: 
-        // fetch data from server!!
-        // reveal correct guesses via color change
         let leftGameAnswer = gameState.leftAnswer.toUpperCase();
         let rightGameAnswer = gameState.rightAnswer.toUpperCase();
         let currentLeftGuess = gameState.leftGuesses[gameState.row];
@@ -122,11 +122,14 @@ const Game = () => {
     }
 
     return (
-        <div  tabIndex={0} onKeyDown={event => handleTypedInput(event)} className='game' ref={gameDiv}>
-            <NavBar />
-            <MainScreen />
-            <KeyboardScreen inputHandler={handleInput} />
-        </div>
+        <>
+            <div tabIndex={0} onKeyDown={event => handleTypedInput(event)} className='game' ref={gameDiv}>
+                <NavBar />
+                <MainScreen />
+                <KeyboardScreen inputHandler={handleInput} />
+            </div>
+            {helpModal && <HelpModal />}
+        </>
     )
 }
 

@@ -3,7 +3,7 @@
 }
 
 .nav-bar {
-  background-color: pink;
+  background-color: grey;
 }
 
 .nav-bar .container {
@@ -19,11 +19,13 @@
 .nav-bar .container .left-menu {
   margin: 0 auto 0 0;
   padding: 0 0 0 3vw;
+  cursor: pointer;
 }
 
 .nav-bar .container .right-menu {
   margin: 0 0 0 auto;
   padding: 0 3vw 0 0;
+  cursor: pointer;
 }
 
 .nav-bar .container h1 {
