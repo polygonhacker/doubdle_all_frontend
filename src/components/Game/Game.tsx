@@ -32,7 +32,7 @@ const Game = () => {
                 9999
             );
         }
-    }, [gameState]);
+    });
 
     const alertMessage = (messages: string[], time: number) => {
         setAlertModal(true);
