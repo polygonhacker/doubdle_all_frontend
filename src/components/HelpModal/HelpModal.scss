@@ -7,11 +7,21 @@
     border-radius: 1rem;
     z-index: 1000;
     background-color: white;
+    padding: 2rem;
+    width: calc(clamp(30vw, 16rem, 30rem));
 
-    .close-button {
-        cursor: pointer;
+    .help-header {
+        display: flex;
+        justify-content: space-between;
+        p {
+            font-size: calc(1rem + 0.75vw);
+            font-weight: bold;
+        }
+
+        .close-button {
+            cursor: pointer;
+        }
     }
-
 }
 
 .overlay {

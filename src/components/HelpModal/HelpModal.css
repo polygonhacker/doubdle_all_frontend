@@ -8,9 +8,25 @@
   border-radius: 1rem;
   z-index: 1000;
   background-color: white;
+  padding: 2rem;
+  width: calc(clamp(30vw, 16rem, 30rem));
 }
 
-.modal-container .close-button {
+.modal-container .help-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.modal-container .help-header p {
+  font-size: calc(1rem + 0.75vw);
+  font-weight: bold;
+}
+
+.modal-container .help-header .close-button {
   cursor: pointer;
 }
 
