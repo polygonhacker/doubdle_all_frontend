@@ -1,0 +1,17 @@
+.alert-modal {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    border-radius: 1rem;
+    z-index: 1000;
+    background-color: white;
+    height: 6rem;
+    width: 12rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}

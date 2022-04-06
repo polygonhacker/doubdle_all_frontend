@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext, useState } from "react";
 import NavBar from '../NavBar/NavBar';
 import MainScreen from '../MainScreen/MainScreen';
 import KeyboardScreen from '../KeyboardScreen/KeyboardScreen';
@@ -7,6 +7,7 @@ import wordSet from "../../assets/wordSet";
 import { green, yellow, grey } from '../../assets/colors'
 import { HelpModalContext } from "../../contexts/helpModalContext";
 import HelpModal from "../HelpModal/HelpModal";
+import AlertModal from "../AlertModal/AlertModal";
 import './Game.css'
 
 const Game = () => {
@@ -17,14 +18,31 @@ const Game = () => {
 
     const helpModal = useContext(HelpModalContext).helpModal;
 
+    const [alertModal, setAlertModal] = useState(false);
+    const [modalMessage, setModalMessage] = useState(['']);
+
+
     useEffect(() => {
         gameDiv.current.focus();
         if (gameState.leftSolved && gameState.rightSolved) {
-            alert('congratulations!');
+            alertMessage(['Congratulations!'], 9999);
         } else if (gameState.row === 6) {
-            alert('better luck next time');
+            alertMessage(
+                [gameState.leftAnswer.toUpperCase(), gameState.rightAnswer.toUpperCase()],
+                9999
+            );
         }
     }, [gameState]);
+
+    const alertMessage = (messages: string[], time: number) => {
+        setAlertModal(true);
+        setModalMessage(messages);
+        if (time < 9999) {
+            setTimeout(() => {
+                setAlertModal(false)
+            }, time)
+        }
+    }
     
     const handleInput = (input: string) => {
         if (gameState.row < 6) {
@@ -71,7 +89,7 @@ const Game = () => {
             word = currentRightGuess.join('').toLowerCase();
         }
         if (!wordSet.has(word)) {
-            alert('word not valid')
+            alertMessage(['Not a valid word!'], 1500);
             return;
         }
         
@@ -129,6 +147,7 @@ const Game = () => {
                 <KeyboardScreen inputHandler={handleInput} />
             </div>
             {helpModal && <HelpModal />}
+            {alertModal && <AlertModal messages={modalMessage} />}
         </>
     )
 }
