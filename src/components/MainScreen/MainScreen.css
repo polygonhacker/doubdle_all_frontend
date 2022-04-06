@@ -34,7 +34,6 @@
   margin: 0 2px 0 2px;
   height: 8vmin;
   width: 7vmin;
-  border: calc(1px + 0.2vw) solid grey;
   font-size: calc(2vmin + 1rem);
   display: -webkit-box;
   display: -ms-flexbox;

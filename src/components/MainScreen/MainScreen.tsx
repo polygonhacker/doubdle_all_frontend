@@ -17,7 +17,8 @@ const MainScreen = () => {
                                     return (
                                     <div key={inner_index} 
                                         className={`tile-${index}-${inner_index}`}
-                                        style={{backgroundColor: gameState.leftTileColor[index][inner_index]}}>
+                                        style={{backgroundColor: gameState.leftTileColor[index][inner_index],
+                                                border: `calc(1px + 0.2vw) solid ${gameState.leftTileColor[index][inner_index] == '' ? 'grey' : gameState.leftTileColor[index][inner_index]}`}}>
                                             {char}
                                     </div>
                                     )
@@ -35,7 +36,8 @@ const MainScreen = () => {
                                     return (
                                         <div key={inner_index} 
                                             className={`tile-${index}-${inner_index}`}
-                                            style={{backgroundColor: gameState.rightTileColor[index][inner_index]}}>
+                                            style={{backgroundColor: gameState.rightTileColor[index][inner_index],
+                                                    border: `calc(1px + 0.2vw) solid ${gameState.rightTileColor[index][inner_index] == '' ? 'grey' : gameState.rightTileColor[index][inner_index]}`}}>
                                                 {char}
                                         </div>
                                     )
