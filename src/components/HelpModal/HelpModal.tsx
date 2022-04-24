@@ -18,7 +18,7 @@ const HelpModal = () => {
         <>
             <div className="modal-container">
                 <div className="help-header">
-                    <p>Instructions</p>
+                    <p>How to play</p>
                     <Close className="close-button" onClick={() => {setHelpModal(!helpModal)}} />
                 </div>
                 
@@ -30,7 +30,7 @@ const HelpModal = () => {
                     Each guess must be a valid five-letter word. Hit the enter button to submit.
                     <br/>
                     <br/>
-                    After each guess, the color of the tiles will change to show how close your guess was to the word.
+                    After each guess, the color of the tiles will change to show how close your guess was to the answers.
                     <br/>
                     <br/>
                     <span style={{color: green, fontWeight: 'bold'}}>Green</span>: the letter is in the correct place.
