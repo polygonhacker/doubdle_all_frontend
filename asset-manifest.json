@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/doubdle-all-frontend/static/css/main.83ec139b.css",
-    "main.js": "/doubdle-all-frontend/static/js/main.cd645281.js",
-    "index.html": "/doubdle-all-frontend/index.html",
-    "static/media/question.svg": "/doubdle-all-frontend/static/media/question.d38a46d64a89bc62f71c1084ee055b7b.svg",
-    "static/media/repeat.svg": "/doubdle-all-frontend/static/media/repeat.eea30c21239c499e90376ef747134d71.svg",
-    "static/media/remove.svg": "/doubdle-all-frontend/static/media/remove.f5c41022161eb321cd2533523bf864d7.svg",
-    "main.83ec139b.css.map": "/doubdle-all-frontend/static/css/main.83ec139b.css.map",
-    "main.cd645281.js.map": "/doubdle-all-frontend/static/js/main.cd645281.js.map"
+    "main.css": "/doubdle_all_frontend/static/css/main.83ec139b.css",
+    "main.js": "/doubdle_all_frontend/static/js/main.cb6cd520.js",
+    "index.html": "/doubdle_all_frontend/index.html",
+    "static/media/question.svg": "/doubdle_all_frontend/static/media/question.d38a46d64a89bc62f71c1084ee055b7b.svg",
+    "static/media/repeat.svg": "/doubdle_all_frontend/static/media/repeat.eea30c21239c499e90376ef747134d71.svg",
+    "static/media/remove.svg": "/doubdle_all_frontend/static/media/remove.f5c41022161eb321cd2533523bf864d7.svg",
+    "main.83ec139b.css.map": "/doubdle_all_frontend/static/css/main.83ec139b.css.map",
+    "main.cb6cd520.js.map": "/doubdle_all_frontend/static/js/main.cb6cd520.js.map"
   },
   "entrypoints": [
     "static/css/main.83ec139b.css",
-    "static/js/main.cd645281.js"
+    "static/js/main.cb6cd520.js"
   ]
 }
